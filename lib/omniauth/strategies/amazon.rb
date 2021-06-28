@@ -3,7 +3,7 @@ require 'multi_json'
 
 module OmniAuth
   module Strategies
-    class AmazonSpartner < OmniAuth::Strategies::OAuth2
+    class Amazon < OmniAuth::Strategies::OAuth2
       attr_reader :selling_partner_id, :mws_auth_token
 
       option :name, 'amazon'
