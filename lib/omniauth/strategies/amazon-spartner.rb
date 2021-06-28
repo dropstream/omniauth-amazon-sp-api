@@ -6,7 +6,7 @@ module OmniAuth
     class AmazonSpartner < OmniAuth::Strategies::OAuth2
       attr_reader :selling_partner_id, :mws_auth_token
 
-      option :name, 'amazon-spartner'
+      option :name, 'amazon'
 
       option :client_options,
              {
