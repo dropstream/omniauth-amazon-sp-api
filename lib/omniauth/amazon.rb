@@ -1,3 +1,3 @@
-require "omniauth/amazon-spartner/version"
+require "omniauth/amazon/version"
 require "omniauth/strategies/amazon"
 
