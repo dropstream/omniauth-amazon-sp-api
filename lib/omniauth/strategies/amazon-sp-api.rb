@@ -6,7 +6,7 @@ module OmniAuth
     class AmazonSpApi < OmniAuth::Strategies::OAuth2
       attr_reader :selling_partner_id, :mws_auth_token
 
-      option :name, 'amazon-sp-api'
+      option :name, 'amazon_sp_api'
 
       option :client_options,
              {
@@ -14,10 +14,6 @@ module OmniAuth
                authorize_url: 'https://sellercentral.amazon.com/apps/authorize/consent',
                token_url: 'https://api.amazon.com/auth/o2/token'
              }
-
-      option :access_token_options, { mode: :query }
-
-      option :authorize_options, [:state]
 
       extra do
         {
@@ -44,7 +40,7 @@ module OmniAuth
       end
 
       def callback_url
-        full_host + script_name + callback_path
+        options[:redirect_uri] || full_host + script_name + callback_path
       end
     end
   end
