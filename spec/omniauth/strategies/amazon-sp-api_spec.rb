@@ -2,10 +2,12 @@ require 'spec_helper'
 
 describe OmniAuth::Strategies::AmazonSpApi do
   subject do
-    strategy = OmniAuth::Strategies::AmazonSpApi.new(nil, @options || {})
+    strategy = OmniAuth::Strategies::AmazonSpApi.new(nil, nil, options)
     strategy.stub(:session) { {} }
     strategy
   end
+
+  let(:options) { {} }
 
   describe '#client' do
     it 'should have the correct Amazon site' do
@@ -29,7 +31,7 @@ describe OmniAuth::Strategies::AmazonSpApi do
 
   describe '#callback_path' do
     it 'should have the correct callback path' do
-      expect(subject.callback_path).to eq('/auth/amazon-sp-api/callback')
+      expect(subject.callback_path).to eq('/auth/amazon_sp_api/callback')
     end
   end
 
@@ -40,8 +42,16 @@ describe OmniAuth::Strategies::AmazonSpApi do
       allow(subject).to receive(:query_string).and_return('?foo=bar')
 
       expect(subject.callback_url).to eq(
-        'https://example.com/sub_uri/auth/amazon-sp-api/callback'
+        'https://example.com/sub_uri/auth/amazon_sp_api/callback'
       )
+    end
+
+    context 'when a redirect_uri option is informed' do
+      let(:options) { { redirect_uri: "https://example.com/auth/amazon_sp_api/callback" } }
+
+      it 'returns the redirect_uri' do
+        expect(subject.callback_url).to eq options[:redirect_uri]
+      end
     end
   end
 end
