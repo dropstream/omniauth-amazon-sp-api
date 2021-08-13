@@ -16,7 +16,7 @@ describe OmniAuth::Strategies::AmazonSpApi do
     subject(:client) { strategy.client }
 
     it 'should have the correct Amazon site' do
-      expect(client.site).to eq'https://sellingpartnerapi-na.amazon.com'
+      expect(client.site).to eq 'https://sellingpartnerapi-na.amazon.com'
     end
 
     it 'should have the correct authorization url' do
