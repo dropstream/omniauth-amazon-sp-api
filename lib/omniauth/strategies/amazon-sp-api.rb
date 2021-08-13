@@ -3,10 +3,10 @@ require 'multi_json'
 
 module OmniAuth
   module Strategies
-    class Amazon < OmniAuth::Strategies::OAuth2
+    class AmazonSpApi < OmniAuth::Strategies::OAuth2
       attr_reader :selling_partner_id, :mws_auth_token
 
-      option :name, 'amazon'
+      option :name, 'amazon-sp-api'
 
       option :client_options,
              {

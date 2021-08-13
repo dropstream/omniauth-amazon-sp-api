@@ -6,7 +6,7 @@ require 'rspec'
 require 'rack/test'
 require 'webmock/rspec'
 require 'omniauth'
-require 'omniauth-amazon-spartner'
+require 'omniauth-amazon-sp-api'
 
 RSpec.configure do |config|
   config.include WebMock::API

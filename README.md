@@ -1,4 +1,4 @@
-# OmniAuth::AmazonSpartner
+# OmniAuth::AmazonSpApi
 
 Website authorization flow for Amazon Selling Partner APIs.
 

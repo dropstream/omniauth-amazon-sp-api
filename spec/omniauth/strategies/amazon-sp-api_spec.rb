@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe OmniAuth::Strategies::Amazon do
+describe OmniAuth::Strategies::AmazonSpApi do
   subject do
-    strategy = OmniAuth::Strategies::AmazonSpartner.new(nil, @options || {})
+    strategy = OmniAuth::Strategies::AmazonSpApi.new(nil, @options || {})
     strategy.stub(:session) { {} }
     strategy
   end
@@ -29,7 +29,7 @@ describe OmniAuth::Strategies::Amazon do
 
   describe '#callback_path' do
     it 'should have the correct callback path' do
-      expect(subject.callback_path).to eq('/auth/amazon/callback')
+      expect(subject.callback_path).to eq('/auth/amazon-sp-api/callback')
     end
   end
 
@@ -40,7 +40,7 @@ describe OmniAuth::Strategies::Amazon do
       allow(subject).to receive(:query_string).and_return('?foo=bar')
 
       expect(subject.callback_url).to eq(
-        'https://example.com/sub_uri/auth/amazon/callback'
+        'https://example.com/sub_uri/auth/amazon-sp-api/callback'
       )
     end
   end

@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'omniauth/amazon/version'
+require 'omniauth/amazon-sp-api/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "omniauth-amazon"
-  spec.version       = OmniAuth::Amazon::VERSION
+  spec.name          = "omniauth-amazon-sp-api"
+  spec.version       = OmniAuth::AmazonSpApi::VERSION
   spec.authors       = ["Dropstream"]
   spec.email         = ["karl.falconer@getdropstream.com"]
   spec.description   = %q{Amazon Selling Partner API strategy}
   spec.summary       = %q{Amazon Selling Partner API strategy}
-  spec.homepage      = "https://github.com/dropstream/omniauth-amazon"
+  spec.homepage      = "https://github.com/dropstream/omniauth-amazon-sp-api"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
