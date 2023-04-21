@@ -3,7 +3,7 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class AmazonSpApi < OmniAuth::Strategies::OAuth2
-      attr_reader :selling_partner_id, :mws_auth_token
+      attr_reader :selling_partner_id, :mws_auth_token, :state
 
       option :name, 'amazon_sp_api'
 
@@ -17,13 +17,15 @@ module OmniAuth
       extra do
         {
           'selling_partner_id' => selling_partner_id,
-          'mws_auth_token' => mws_auth_token
+          'mws_auth_token' => mws_auth_token,
+          'state' => state
         }
       end
 
       def callback_phase
         @selling_partner_id = request.params['selling_partner_id']
         @mws_auth_token = request.params['mws_auth_token']
+        @state = request.params['state']
         super
       end
 
